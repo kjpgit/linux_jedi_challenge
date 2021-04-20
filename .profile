@@ -1,12 +1,13 @@
 # ~/.profile: executed by Bourne-compatible login shells.
 
-start() {
-    /usr/bin/game.py start
-    unset -f start
+level1() {
+    echo 1 > /etc/gamelevel
+    /usr/bin/game.py help
 }
 
-status() {
-    /usr/bin/game.py status
+level2() {
+    echo 2 > /etc/gamelevel
+    /usr/bin/game.py help
 }
 
 if [ "$BASH" ]; then
@@ -32,10 +33,13 @@ export PS1=\
 "${CYAN}jedi-trainer${CLEAR} "\
 "${GREEN}\w${CLEAR}"\
 "${BLUE}]${CLEAR}"\
+" ${BLUE}[${CLEAR}"\
 "${PURPLE}\$(/usr/bin/game.py check)${CLEAR}"\
+"${BLUE}]${CLEAR}"\
 "\n\$ "
 
 export QUOTING_STYLE=literal
-bind 'set disable-completion on'
+#bind 'set disable-completion on'
 
-start
+/usr/bin/game.py init
+level1
