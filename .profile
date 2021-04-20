@@ -35,7 +35,7 @@ export PS1=\
 "${PURPLE}\$(/usr/bin/game.py check)${CLEAR}"\
 "\n\$ "
 
-export QUOTING_STYLE=escape
+export QUOTING_STYLE=literal
 bind 'set disable-completion on'
 
 start
